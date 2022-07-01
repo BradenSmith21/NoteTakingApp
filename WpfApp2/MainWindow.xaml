@@ -38,6 +38,10 @@
                 </Menu>
                 <ToolBarTray DockPanel.Dock="Top">
                     <ToolBar Style="{DynamicResource MaterialDesignToolBar}">
+                        <Button ToolTip="FontChanger" ToolBar.OverflowMode="AsNeeded" Click="Button_Click">
+                            <materialDesign:PackIcon Kind="FormatFont"/>
+                            </Button>
+                        <Separator/>
                         <Button ToolTip="Save">
                             <materialDesign:PackIcon Kind="ContentSave"/>
                         </Button>

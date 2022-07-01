@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -28,7 +30,7 @@ namespace WpfApp2
 
         private void saveTextBox_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.Filter = "Rich Text file (*.rtf)|*.rtf";
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -60,6 +62,21 @@ namespace WpfApp2
         private void Italics_Click(object sender, RoutedEventArgs e)
         {
             EditingCommands.ToggleItalic.Execute(null, newNoteBox);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            var result = fd.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                Debug.WriteLine(fd.Font);
+
+                newNoteBox.FontFamily = new FontFamily(fd.Font.Name);
+                newNoteBox.FontSize = fd.Font.Size * 96.0 / 72.0;
+                newNoteBox.FontWeight = fd.Font.Bold ? FontWeights.Bold : FontWeights.Regular;
+                newNoteBox.FontStyle = fd.Font.Italic ? FontStyles.Italic : FontStyles.Normal;
+            }
         }
     }
 }
