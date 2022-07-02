@@ -40,20 +40,12 @@
                     <ToolBar Style="{DynamicResource MaterialDesignToolBar}">
                         <Button ToolTip="FontChanger" ToolBar.OverflowMode="AsNeeded" Click="Button_Click">
                             <materialDesign:PackIcon Kind="FormatFont"/>
-                            </Button>
-                        <Separator/>
-                        <Button ToolTip="Save">
-                            <materialDesign:PackIcon Kind="ContentSave"/>
                         </Button>
-                        <Separator/>
-                        <Button Command="Cut" ToolTip="Cut" ToolBar.OverflowMode="AsNeeded">
-                            <materialDesign:PackIcon Kind="ContentCut"/>
+                        <Button Name ="FontDecrease" ToolTip="Decrease Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontDecrease_Click">
+                            <materialDesign:PackIcon Kind="FormatFontSizeDecrease"/>
                         </Button>
-                        <Button Command="Copy" ToolTip="Copy that stuff" ToolBar.OverflowMode="AsNeeded">
-                            <materialDesign:PackIcon Kind="ContentCopy"/>
-                        </Button>
-                        <Button Command="Paste" ToolTip="Paste some stuff" ToolBar.OverflowMode="AsNeeded">
-                            <materialDesign:PackIcon Kind="ContentPaste"/>
+                        <Button Name ="FontIncrease" ToolTip="Increase Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontIncrease_Click">
+                            <materialDesign:PackIcon Kind="FormatFontSizeIncrease"/>
                         </Button>
                         <Separator/>
                         <Button Name="toggleBullets" ToolTip="Add Bullets!" ToolBar.OverflowMode="AsNeeded" Click="toggleBullets_Click">
@@ -61,7 +53,17 @@
                         </Button>
                         <Button Name="toggleNumerals" ToolTip="Add Numbers!" ToolBar.OverflowMode="AsNeeded" Click="toggleNumerals_Click">
                             <materialDesign:PackIcon Kind="FormatListNumbered"/>
-                        </Button>       
+                        </Button>
+                        <Separator/>
+                        <Button Name ="leftAlignment" ToolTip="Set Alignment Left" ToolBar.OverflowMode="AsNeeded" Click="leftAlignment_Click">
+                            <materialDesign:PackIcon Kind="AlignHorizontalLeft"/>
+                        </Button>
+                        <Button Name ="CenterAlignment" ToolTip="Set Alignment Center" ToolBar.OverflowMode="AsNeeded" Click="CenterAlignment_Click">
+                            <materialDesign:PackIcon Kind="AlignHorizontalCenter"/>
+                        </Button>
+                        <Button Name ="RightAlignment" ToolTip="Set Alignment Right" ToolBar.OverflowMode="AsNeeded" Click="RightAlignment_Click">
+                            <materialDesign:PackIcon Kind="AlignHorizontalRight"/>
+                        </Button> 
                         <Separator/>
                         <Button Name="Bold" ToolTip="Bold" ToolBar.OverflowMode="AsNeeded" Click="Bold_Click">
                             <materialDesign:PackIcon Kind="FormatBold"/>
@@ -72,6 +74,8 @@
                         <Button Name="underLine" ToolTip="Underline" ToolBar.OverflowMode="AsNeeded" Click="underLine_Click">
                             <materialDesign:PackIcon Kind="FormatUnderline"/>
                         </Button>
+                        
+                        <Separator/>
                     </ToolBar>
                 </ToolBarTray>
                 <Grid VerticalAlignment="Top" Margin="16">
@@ -89,7 +93,7 @@
 
                     <materialDesign:PackIcon Kind="PaperAdd" VerticalAlignment="Center"/>
                     <TextBlock Grid.Column="1" Margin="8,0,0,0" VerticalAlignment= "Center" >New Note:</TextBlock>
-                    <xctk:RichTextBox Grid.Column="2" Margin="10" VerticalAlignment="Center" AcceptsReturn="True" Name="newNoteBox" Text="{Binding DataContext, ElementName=saveTextBox}"></xctk:RichTextBox>
+                    <xctk:RichTextBox Grid.Column="2" Margin="10" VerticalAlignment="Center" AcceptsReturn="True" Name="newNoteBox" VerticalScrollBarVisibility="Auto" MaxHeight="400" Text="{Binding DataContext, ElementName=saveTextBox}"></xctk:RichTextBox>
                     <Button Name="saveTextBox"  Grid.Column="3" Margin="8, 0, 0, 0" Click="saveTextBox_Click">Save Note</Button>
                 </Grid>
             </DockPanel>

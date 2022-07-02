@@ -46,7 +46,7 @@ namespace WpfApp2
 
         private void underLine_Click(object sender, RoutedEventArgs e)
         {
-           EditingCommands.ToggleUnderline.Execute(null, newNoteBox);  
+            EditingCommands.ToggleUnderline.Execute(null, newNoteBox);
         }
 
         private void toggleNumerals_Click(object sender, RoutedEventArgs e)
@@ -62,7 +62,7 @@ namespace WpfApp2
         private void Italics_Click(object sender, RoutedEventArgs e)
         {
             EditingCommands.ToggleItalic.Execute(null, newNoteBox);
-        }
+        } 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -77,6 +77,31 @@ namespace WpfApp2
                 newNoteBox.FontWeight = fd.Font.Bold ? FontWeights.Bold : FontWeights.Regular;
                 newNoteBox.FontStyle = fd.Font.Italic ? FontStyles.Italic : FontStyles.Normal;
             }
+        }
+
+        private void leftAlignment_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.AlignLeft.Execute(null, newNoteBox);
+        }
+
+        private void CenterAlignment_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.AlignCenter.Execute(null, newNoteBox);
+        }
+
+        private void RightAlignment_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.AlignRight.Execute(null, newNoteBox);
+        }
+
+        private void FontIncrease_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.IncreaseFontSize.Execute(null, newNoteBox);
+        }
+
+        private void FontDecrease_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.DecreaseFontSize.Execute(null, newNoteBox);
         }
     }
 }
