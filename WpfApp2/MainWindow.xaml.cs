@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+
 namespace WpfApp2
 {
     /// <summary>
@@ -25,7 +27,36 @@ namespace WpfApp2
     {
         public MainWindow()
         {
+            Loaded += MainWindow_Loaded;
             InitializeComponent();
+        }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            /* // Open a Stream and decode a GIF image
+             Stream imageStreamSource = new FileStream("C:/Users/Fault/Desktop/temp/test.gif", FileMode.Open, FileAccess.Read, FileShare.Read);
+             newNoteBox.Paste();
+             GifBitmapDecoder decoder = new GifBitmapDecoder(imageStreamSource, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+             BitmapSource bitmapSource = decoder.Frames[9];
+
+             // Draw the Image
+             System.Windows.Controls.Image myImage = new System.Windows.Controls.Image
+             {
+                 Source = bitmapSource,
+                 Stretch = Stretch.None,
+                 Margin = new Thickness(20)
+             };
+             //Bitmap bmp = new Bitmap(@"C:\Users\Fault\Desktop\temp\test.gif");
+             //System.Windows.Forms.Clipboard.GetImage();
+           
+            
+            
+            //newNoteBox.Paste();*/
+           /* var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = new Uri("C:/Users/Fault/Desktop/temp/test.gif");
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource( img, image);*/
+
         }
 
         private void saveTextBox_Click(object sender, RoutedEventArgs e)
@@ -38,7 +69,6 @@ namespace WpfApp2
             }
 
         }
-
         private void toggleBullets_Click(object sender, RoutedEventArgs e)
         {
             EditingCommands.ToggleBullets.Execute(null, newNoteBox);
@@ -72,7 +102,7 @@ namespace WpfApp2
             {
                 Debug.WriteLine(fd.Font);
 
-                newNoteBox.FontFamily = new FontFamily(fd.Font.Name);
+                newNoteBox.FontFamily = new System.Windows.Media.FontFamily(fd.Font.Name);
                 newNoteBox.FontSize = fd.Font.Size * 96.0 / 72.0;
                 newNoteBox.FontWeight = fd.Font.Bold ? FontWeights.Bold : FontWeights.Regular;
                 newNoteBox.FontStyle = fd.Font.Italic ? FontStyles.Italic : FontStyles.Normal;
@@ -103,6 +133,7 @@ namespace WpfApp2
         {
             EditingCommands.DecreaseFontSize.Execute(null, newNoteBox);
         }
+
     }
 }
 
