@@ -105,7 +105,14 @@
             </DockPanel>
         </TabItem>
         <TabItem Name="SavedNotesHeader" Header="Saved Notes" Width="180" Margin="16">
-
+            <Grid>
+                <materialDesign:Card x:Name="Card_1" Padding="32" Margin="35,23,552,241" Content="Note Name: &#xD;&#xA;&#xD;&#xA;Summary:&#xD;&#xA;&#xD;&#xA;Color: (place&#xD;&#xA;holder)" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+                <materialDesign:Card x:Name="Card_2" Padding="32" Margin="293,23,294,241"/>
+                <materialDesign:Card x:Name="Card_3" Padding="32" Margin="518,23,69,241"/>
+                <materialDesign:Card x:Name="Card_4" Padding="32" Margin="35,254,552,10"/>
+                <materialDesign:Card x:Name="Card_5" Padding="32" Margin="293,254,294,10"/>
+                <materialDesign:Card x:Name="Card_6" Padding="32" Margin="518,254,69,10"/>
+            </Grid>
         </TabItem>
     </TabControl>
 </Window>
