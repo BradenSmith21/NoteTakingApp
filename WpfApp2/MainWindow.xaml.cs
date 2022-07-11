@@ -51,11 +51,11 @@ namespace WpfApp2
             
             
             //newNoteBox.Paste();*/
-           /* var image = new BitmapImage();
-            image.BeginInit();
-            image.UriSource = new Uri("C:/Users/Fault/Desktop/temp/test.gif");
-            image.EndInit();
-            ImageBehavior.SetAnimatedSource( img, image);*/
+            /* var image = new BitmapImage();
+             image.BeginInit();
+             image.UriSource = new Uri("C:/Users/Fault/Desktop/temp/test.gif");
+             image.EndInit();
+             ImageBehavior.SetAnimatedSource( img, image);*/
 
         }
 
@@ -134,6 +134,22 @@ namespace WpfApp2
             EditingCommands.DecreaseFontSize.Execute(null, newNoteBox);
         }
 
+        private void openNote_Click(object sender, RoutedEventArgs e)
+        {
+            Stream myStream;
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "Rich Text file (*.rtf)|*.rtf";
+            if (openFileDialog.ShowDialog() == true)
+            { 
+                if((myStream = openFileDialog.OpenFile())!=null)
+                {
+                    string fileName = openFileDialog.FileName;
+                    string fileText = File.ReadAllText(fileName);
+                    newNoteBox.Text = fileText;
+                }
+
+            }
+        }
     }
 }
 
