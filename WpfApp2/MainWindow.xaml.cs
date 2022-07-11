@@ -150,6 +150,16 @@ namespace WpfApp2
 
             }
         }
+
+        private void ColorChange_Click(object sender, RoutedEventArgs e)
+        {
+            ColorDialog cd = new ColorDialog();
+            var result = cd.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                newNoteBox.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromArgb(cd.Color.A, cd.Color.R, cd.Color.G, cd.Color.B));
+            }
+        }
     }
 }
 
