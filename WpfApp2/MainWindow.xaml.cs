@@ -157,7 +157,7 @@ namespace WpfApp2
             var result = cd.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                newNoteBox.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromArgb(cd.Color.A, cd.Color.R, cd.Color.G, cd.Color.B));
+                newNoteBox.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(cd.Color.A, cd.Color.R, cd.Color.G, cd.Color.B));
             }
         }
     }
