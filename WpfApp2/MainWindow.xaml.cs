@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 
 namespace WpfApp2
 {
@@ -27,46 +28,66 @@ namespace WpfApp2
     {
         public MainWindow()
         {
-            Loaded += MainWindow_Loaded;
+            //Loaded += MainWindow_Loaded;
             InitializeComponent();
         }
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            /* // Open a Stream and decode a GIF image
-             Stream imageStreamSource = new FileStream("C:/Users/Fault/Desktop/temp/test.gif", FileMode.Open, FileAccess.Read, FileShare.Read);
-             newNoteBox.Paste();
-             GifBitmapDecoder decoder = new GifBitmapDecoder(imageStreamSource, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-             BitmapSource bitmapSource = decoder.Frames[9];
+        //private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        //{
+        /* // Open a Stream and decode a GIF image
+         Stream imageStreamSource = new FileStream("C:/Users/Fault/Desktop/temp/test.gif", FileMode.Open, FileAccess.Read, FileShare.Read);
+         newNoteBox.Paste();
+         GifBitmapDecoder decoder = new GifBitmapDecoder(imageStreamSource, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+         BitmapSource bitmapSource = decoder.Frames[9];
 
-             // Draw the Image
-             System.Windows.Controls.Image myImage = new System.Windows.Controls.Image
-             {
-                 Source = bitmapSource,
-                 Stretch = Stretch.None,
-                 Margin = new Thickness(20)
-             };
-             //Bitmap bmp = new Bitmap(@"C:\Users\Fault\Desktop\temp\test.gif");
-             //System.Windows.Forms.Clipboard.GetImage();
-           
-            
-            
-            //newNoteBox.Paste();*/
-            /* var image = new BitmapImage();
-             image.BeginInit();
-             image.UriSource = new Uri("C:/Users/Fault/Desktop/temp/test.gif");
-             image.EndInit();
-             ImageBehavior.SetAnimatedSource( img, image);*/
+         // Draw the Image
+         System.Windows.Controls.Image myImage = new System.Windows.Controls.Image
+         {
+             Source = bitmapSource,
+             Stretch = Stretch.None,
+             Margin = new Thickness(20)
+         };
+         //Bitmap bmp = new Bitmap(@"C:\Users\Fault\Desktop\temp\test.gif");
+         //System.Windows.Forms.Clipboard.GetImage();
 
-        }
+
+
+        //newNoteBox.Paste();*/
+        /* var image = new BitmapImage();
+         image.BeginInit();
+         image.UriSource = new Uri("C:/Users/Fault/Desktop/temp/test.gif");
+         image.EndInit();
+         ImageBehavior.SetAnimatedSource( img, image);*/
+
+        // }
 
         private void saveTextBox_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
+            /*Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.Filter = "Rich Text file (*.rtf)|*.rtf";
             if (saveFileDialog.ShowDialog() == true)
             {
                 File.WriteAllText(saveFileDialog.FileName, newNoteBox.Text);
-            }
+            } THIS IS IF DATABASE DOESNT WORK... PULLS FILE FROM COMPUTER INSTEAD*/
+
+
+            string testName = "testName";
+            string testSummary = "testSummary";
+            string connectionString = "SERVER=localhost;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand myCmd = new MySqlCommand("INSERT INTO notes(note_name, note_summary, note_content) Values(@testName,@testSummary,@noteContent)", connection))
+                {
+
+                    myCmd.Parameters.AddWithValue("@testName", testName.ToString());
+                    myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
+                    myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
+
+                    myCmd.ExecuteNonQuery();
+                }
+                connection.Close();
+
+            } // yay this works, now to test loading
 
         }
         private void toggleBullets_Click(object sender, RoutedEventArgs e)
@@ -92,7 +113,7 @@ namespace WpfApp2
         private void Italics_Click(object sender, RoutedEventArgs e)
         {
             EditingCommands.ToggleItalic.Execute(null, newNoteBox);
-        } 
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -136,18 +157,35 @@ namespace WpfApp2
 
         private void openNote_Click(object sender, RoutedEventArgs e)
         {
-            Stream myStream;
-            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.Filter = "Rich Text file (*.rtf)|*.rtf";
-            if (openFileDialog.ShowDialog() == true)
-            { 
-                if((myStream = openFileDialog.OpenFile())!=null)
-                {
-                    string fileName = openFileDialog.FileName;
-                    string fileText = File.ReadAllText(fileName);
-                    newNoteBox.Text = fileText;
-                }
+            /* Stream myStream;
+             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+             openFileDialog.Filter = "Rich Text file (*.rtf)|*.rtf";
+             if (openFileDialog.ShowDialog() == true)
+             {
+                 if ((myStream = openFileDialog.OpenFile()) != null)
+                 {
+                     string fileName = openFileDialog.FileName;
+                     string fileText = File.ReadAllText(fileName);
+                     newNoteBox.Text = fileText;
+                 }
 
+             }*/
+        //    string testName = "testName";
+          //  string testSummary = "testSummary";
+          // DATABASE PULLING WORKS :D, just need further development to make it less hard coded and more automatic.
+            string connectionString = "SERVER=localhost;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand mySqlCommand = new MySqlCommand("SELECT note_content FROM notes WHERE note_id=" + 3, connection))
+                using (MySqlDataReader sqlreader = mySqlCommand.ExecuteReader())
+                {
+                    if (sqlreader.Read())
+                    {
+                        newNoteBox.Text = sqlreader["note_content"].ToString();
+                    }
+                }
+                connection.Close();
             }
         }
 
@@ -157,8 +195,13 @@ namespace WpfApp2
             var result = cd.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                newNoteBox.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(cd.Color.A, cd.Color.R, cd.Color.G, cd.Color.B));
+                newNoteBox.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromArgb(cd.Color.A, cd.Color.R, cd.Color.G, cd.Color.B));
             }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,7 +14,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="627.18" Width="765.205">
-    <TabControl Margin="18,17,13,15">
+    <TabControl Margin="18,17,13,15" SelectionChanged="TabControl_SelectionChanged">
         <TabItem Name="NewNoteHeader"  Header="New Note" Width="180">
             <DockPanel>
                 <Menu DockPanel.Dock="Top">
@@ -44,7 +44,7 @@
                         <Button Name="ColorChange" ToolTip="Change Font Color" ToolBar.OverflowMode="AsNeeded" Click="ColorChange_Click">
                             <materialDesign:PackIcon Kind="Color" Width="18"/>
                         </Button>
-                        <Button Name ="FontDecrease" ToolTip="Decrease Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontDecrease_Click">
+                        <Button Name ="FontDecrease" ToolTip="Decrease Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontDecrease_Click"> 
                             <materialDesign:PackIcon Kind="FormatFontSizeDecrease" Height="18" Width="18"/>
                         </Button>
                         <Button Name ="FontIncrease" ToolTip="Increase Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontIncrease_Click">
@@ -114,7 +114,7 @@
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote1" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>
-                <materialDesign:Card x:Name="Card_1_Copy" Padding="8" Margin="260,32,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" >
+                <materialDesign:Card x:Name="Card_1_Copy" Padding="8" Margin="260,32,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5" >
                     <Grid>
                         <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
                                 <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote2" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -146,7 +146,7 @@
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote9" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>
-                <materialDesign:Card x:Name="Card_1_Copy4" Padding="8" Margin="0,254,102,0" Height="194" VerticalAlignment="Top" HorizontalAlignment="Right" Width="141" >
+                <materialDesign:Card x:Name="Card_1_Copy4" Padding="8" Margin="0,254,102,0" Height="194" VerticalAlignment="Top" HorizontalAlignment="Right" Width="141" materialDesign:ShadowAssist.ShadowDepth="Depth5" >
                     <Grid>
                         <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
                                 <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote10" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
