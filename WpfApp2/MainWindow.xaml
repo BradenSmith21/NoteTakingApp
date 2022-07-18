@@ -14,7 +14,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="627.18" Width="765.205">
-    <TabControl Margin="18,17,13,15" SelectionChanged="TabControl_SelectionChanged">
+    <TabControl Margin="18,17,13,15">
         <TabItem Name="NewNoteHeader"  Header="New Note" Width="180">
             <DockPanel>
                 <Menu DockPanel.Dock="Top">
@@ -44,7 +44,7 @@
                         <Button Name="ColorChange" ToolTip="Change Font Color" ToolBar.OverflowMode="AsNeeded" Click="ColorChange_Click">
                             <materialDesign:PackIcon Kind="Color" Width="18"/>
                         </Button>
-                        <Button Name ="FontDecrease" ToolTip="Decrease Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontDecrease_Click"> 
+                        <Button Name ="FontDecrease" ToolTip="Decrease Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontDecrease_Click">
                             <materialDesign:PackIcon Kind="FormatFontSizeDecrease" Height="18" Width="18"/>
                         </Button>
                         <Button Name ="FontIncrease" ToolTip="Increase Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontIncrease_Click">
@@ -100,7 +100,12 @@
                             </Style>
                         </xctk:RichTextBox.Resources>
                     </xctk:RichTextBox>
-                    <Button Name="saveTextBox"  Grid.Column="3" Margin="8, 0, 0, 0" Click="saveTextBox_Click">Save Note</Button>
+                    <Button x:Name="saveTextBox"  Grid.Column="3" Content="Save to Note 1" Click="saveTextBox_Click" Height="Auto" Margin="8,3,0,4"/>
+                    <Button x:Name="saveTextBox2" Grid.Column="3" Content="Save to Note 2" Grid.Row="1" Height="Auto" Margin="8,10,0,-41" Click="saveTextBox2_Click"/>
+                    <Button x:Name="saveTextBox3" Grid.Column="3" Content="Save to Note 3" Grid.Row="1" Height="Auto" Margin="8,55,0,-86"/>
+                    <Button x:Name="saveTextBox4" Grid.Column="3" Content="Save to Note 4" Grid.Row="1" Height="Auto" Margin="8,100,0,-132"/>
+                    <Button x:Name="saveTextBox5" Grid.Column="3" Content="Save to Note 5" Grid.Row="1" Height="Auto" Margin="8,146,0,-177"/>
+                    <Button x:Name="saveTextBox6" Grid.Column="3" Content="Save to Note 6" Grid.Row="1" Height="Auto" Margin="8,192,0,-223"/>
                 </Grid>
             </DockPanel>
         </TabItem>
@@ -108,49 +113,91 @@
             <Grid>
                 <materialDesign:Card x:Name="Card_1" Padding="8" Margin="43,32,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5">
                     <Grid>
-                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
-                                <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Click="openNote_Click"/>
-                            </InlineUIContainer><LineBreak/><Run/></TextBlock>
+                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
+                                <Button
+                                    Width="37" Padding="8" x:Name="deleteNote" Height="35" Click="deleteNote_Click">
+                                    <materialDesign:PackIcon
+                                        Kind="TrashCan"/>
+                                </Button>
+                            </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 1"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
+                                <Button
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote" Height="32" HorizontalAlignment="Center" Content="Open Note" Click="openNote_Click"/>
+                            </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote1" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>
-                <materialDesign:Card x:Name="Card_1_Copy" Padding="8" Margin="260,32,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5" >
+                <materialDesign:Card x:Name="Card_1_Copy" Padding="8" Margin="286,32,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5">
                     <Grid>
-                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
-                                <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote2" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </InlineUIContainer><LineBreak/><Run/></TextBlock>
+                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
+                                <Button
+                                    Width="37" Padding="8" x:Name="deleteNote1" Height="35" Click="deleteNote_Click">
+                                    <materialDesign:PackIcon
+                                        Kind="TrashCan"/>
+                                </Button>
+                            </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 2"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
+                                <Button
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote2" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                            </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote3" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>
-                <materialDesign:Card x:Name="Card_1_Copy1" Padding="8" Margin="485,32,0,0" Height="194" VerticalAlignment="Top" HorizontalAlignment="Left" Width="141" materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                <materialDesign:Card x:Name="Card_1_Copy1" Padding="8" Margin="522,32,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5">
                     <Grid>
-                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
-                                <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote4" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </InlineUIContainer><LineBreak/><Run/></TextBlock>
+                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
+                                <Button
+                                    Width="37" Padding="8" x:Name="deleteNote2" Height="35" Click="deleteNote_Click">
+                                    <materialDesign:PackIcon
+                                        Kind="TrashCan"/>
+                                </Button>
+                            </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 3"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
+                                <Button
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote4" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                            </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote5" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>
-                <materialDesign:Card x:Name="Card_1_Copy2" Padding="8" Margin="0,254,544,0" Height="194" VerticalAlignment="Top" HorizontalAlignment="Right" Width="141" materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                <materialDesign:Card x:Name="Card_1_Copy2" Padding="8" Margin="43,280,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5">
                     <Grid>
-                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
-                                <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote6" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </InlineUIContainer><LineBreak/><Run/></TextBlock>
+                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
+                                <Button
+                                    Width="37" Padding="8" x:Name="deleteNote3" Height="35" Click="deleteNote_Click">
+                                    <materialDesign:PackIcon
+                                        Kind="TrashCan"/>
+                                </Button>
+                            </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 4"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
+                                <Button
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote6" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                            </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote7" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>
-                <materialDesign:Card x:Name="Card_1_Copy3" Padding="8" Margin="0,254,323,0" HorizontalAlignment="Right" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                <materialDesign:Card x:Name="Card_1_Copy3" Padding="8" Margin="286,280,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5">
                     <Grid>
-                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
-                                <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote8" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </InlineUIContainer><LineBreak/><Run/></TextBlock>
+                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
+                                <Button
+                                    Width="37" Padding="8" x:Name="deleteNote4" Height="35" Click="deleteNote_Click">
+                                    <materialDesign:PackIcon
+                                        Kind="TrashCan"/>
+                                </Button>
+                            </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 5"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
+                                <Button
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote8" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                            </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote9" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>
-                <materialDesign:Card x:Name="Card_1_Copy4" Padding="8" Margin="0,254,102,0" Height="194" VerticalAlignment="Top" HorizontalAlignment="Right" Width="141" materialDesign:ShadowAssist.ShadowDepth="Depth5" >
+                <materialDesign:Card x:Name="Card_1_Copy4" Padding="8" Margin="522,280,0,0" HorizontalAlignment="Left" Width="141" Height="194" VerticalAlignment="Top" materialDesign:ShadowAssist.ShadowDepth="Depth5">
                     <Grid>
-                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="Not"/><Run Text="e Name:"/><LineBreak/><LineBreak/><Run Text="Summary"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run Text="C"/><Run Text="o"/><Run Text="lor:("/><Run Text="Placeholder)"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="   "/><LineBreak/><Run Text="  "/><InlineUIContainer>
-                                <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote10" Content="Open Note" Width="107" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </InlineUIContainer><LineBreak/><Run/></TextBlock>
+                        <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
+                                <Button
+                                    Width="37" Padding="8" x:Name="deleteNote5" Height="35" Click="deleteNote_Click">
+                                    <materialDesign:PackIcon
+                                        Kind="TrashCan"/>
+                                </Button>
+                            </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 6"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
+                                <Button
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote10" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                            </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote11" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
                 </materialDesign:Card>

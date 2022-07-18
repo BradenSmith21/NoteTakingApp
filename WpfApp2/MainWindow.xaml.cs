@@ -84,8 +84,9 @@ namespace WpfApp2
                     myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
 
                     myCmd.ExecuteNonQuery();
+                    connection.Close();
                 }
-                connection.Close();
+                
 
             } // yay this works, now to test loading
 
@@ -170,14 +171,14 @@ namespace WpfApp2
                  }
 
              }*/
-        //    string testName = "testName";
-          //  string testSummary = "testSummary";
-          // DATABASE PULLING WORKS :D, just need further development to make it less hard coded and more automatic.
+            //    string testName = "testName";
+            //  string testSummary = "testSummary";
+            // DATABASE PULLING WORKS :D, just need further development to make it less hard coded and more automatic.
             string connectionString = "SERVER=localhost;DATABASE=wpf_2;UID=root;PASSWORD=root;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                using (MySqlCommand mySqlCommand = new MySqlCommand("SELECT note_content FROM notes WHERE note_id=" + 3, connection))
+                using (MySqlCommand mySqlCommand = new MySqlCommand("SELECT note_content FROM notes WHERE note_id=" + 1, connection))
                 using (MySqlDataReader sqlreader = mySqlCommand.ExecuteReader())
                 {
                     if (sqlreader.Read())
@@ -199,9 +200,39 @@ namespace WpfApp2
             }
         }
 
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void deleteNote_Click(object sender, RoutedEventArgs e)
         {
+            string connectionString = "SERVER=localhost;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_name = ' ', note_summary = ' ', note_content = ' ' WHERE note_id=" + 1 + ";", connection);
+                mySqlCommand.BeginExecuteNonQuery();
+                connection.Close();
+            }
+        }
 
+        private void saveTextBox2_Click(object sender, RoutedEventArgs e)
+        {
+            string testName = "testName";
+            string testSummary = "testSummary";
+            string connectionString = "SERVER=localhost;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand myCmd = new MySqlCommand("UPDATE notes SET note_name = '@testName', note_summary = '@testSummary', note_content = '@noteContent' WHERE note_id=" + 2 + ";", connection))
+                {
+
+                    myCmd.Parameters.AddWithValue("@testName", testName.ToString());
+                    myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
+                    myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
+
+                    myCmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+
+
+            }
         }
     }
 }
