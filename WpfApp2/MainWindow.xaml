@@ -13,7 +13,7 @@
         FontFamily= "{StaticResource MaterialDesignFont}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="627.18" Width="765.205">
+        Title="MainWindow" Height="655.18" Width="756.205">
     <TabControl Margin="18,17,13,15">
         <TabItem Name="NewNoteHeader"  Header="New Note" Width="180">
             <DockPanel>
@@ -81,31 +81,21 @@
                         <Separator/>
                     </ToolBar>
                 </ToolBarTray>
-                <Grid VerticalAlignment="Top" Margin="16">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+                <Grid >
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <xctk:RichTextBox Grid.Column="2" Margin="10" VerticalAlignment="Center" AcceptsReturn="True" Name="newNoteBox" VerticalScrollBarVisibility="Auto" MaxHeight="500" Text="{Binding DataContext, ElementName=saveTextBox}">
+                    <xctk:RichTextBox Margin="25,19,171,10" AcceptsReturn="True" Name="newNoteBox" VerticalScrollBarVisibility="Auto" Text="{Binding DataContext, ElementName=saveTextBox}">
                         <xctk:RichTextBox.Resources>
                             <Style TargetType="{x:Type Paragraph}">
                                 <Setter Property="Margin" Value="0" />
                             </Style>
                         </xctk:RichTextBox.Resources>
                     </xctk:RichTextBox>
-                    <Button x:Name="saveTextBox"  Grid.Column="3" Content="Save to Note 1" Click="saveTextBox_Click" Height="Auto" Margin="8,3,0,4"/>
-                    <Button x:Name="saveTextBox2" Grid.Column="3" Content="Save to Note 2" Grid.Row="1" Height="Auto" Margin="8,10,0,-41" Click="saveTextBox2_Click"/>
-                    <Button x:Name="saveTextBox3" Grid.Column="3" Content="Save to Note 3" Grid.Row="1" Height="Auto" Margin="8,55,0,-86"/>
-                    <Button x:Name="saveTextBox4" Grid.Column="3" Content="Save to Note 4" Grid.Row="1" Height="Auto" Margin="8,100,0,-132"/>
-                    <Button x:Name="saveTextBox5" Grid.Column="3" Content="Save to Note 5" Grid.Row="1" Height="Auto" Margin="8,146,0,-177"/>
-                    <Button x:Name="saveTextBox6" Grid.Column="3" Content="Save to Note 6" Grid.Row="1" Height="Auto" Margin="8,192,0,-223"/>
+                    <Button x:Name="saveTextBox"  Content="Save to Note 1" Height="31" Margin="0,17,20,0" Click="saveTextBox_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128"/>
+                    <Button x:Name="saveTextBox2" Content="Save to Note 2" Height="31" Margin="0,68,20,0" Click="saveTextBox2_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128"/>
+                    <Button x:Name="saveTextBox3" Content="Save to Note 3" Height="31" Margin="0,115,20,0" Click="saveTextBox3_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128"/>
+                    <Button x:Name="saveTextBox4" Content="Save to Note 4" Height="32" Margin="0,164,20,0" Click="saveTextBox4_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128"/>
+                    <Button x:Name="saveTextBox5" Content="Save to Note 5" Height="31" Margin="0,216,20,0" Click="saveTextBox5_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128"/>
+                    <Button x:Name="saveTextBox6" Content="Save to Note 6" Height="31" Margin="0,264,20,0" Click="saveTextBox6_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128"/>
                 </Grid>
             </DockPanel>
         </TabItem>
@@ -130,13 +120,13 @@
                     <Grid>
                         <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
                                 <Button
-                                    Width="37" Padding="8" x:Name="deleteNote1" Height="35" Click="deleteNote_Click">
+                                    Width="37" Padding="8" x:Name="deleteNote1" Height="35" Click="deleteNote1_Click">
                                     <materialDesign:PackIcon
                                         Kind="TrashCan"/>
                                 </Button>
                             </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 2"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
                                 <Button
-                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote2" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote2" Height="32" HorizontalAlignment="Center" Content="Open Note" Click="openNote2_Click"/>
                             </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote3" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
@@ -145,13 +135,13 @@
                     <Grid>
                         <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
                                 <Button
-                                    Width="37" Padding="8" x:Name="deleteNote2" Height="35" Click="deleteNote_Click">
+                                    Width="37" Padding="8" x:Name="deleteNote2" Height="35" Click="deleteNote2_Click">
                                     <materialDesign:PackIcon
                                         Kind="TrashCan"/>
                                 </Button>
                             </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 3"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
                                 <Button
-                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote4" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote4" Height="32" HorizontalAlignment="Center" Content="Open Note" Click="openNote4_Click"/>
                             </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote5" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
@@ -160,13 +150,13 @@
                     <Grid>
                         <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
                                 <Button
-                                    Width="37" Padding="8" x:Name="deleteNote3" Height="35" Click="deleteNote_Click">
+                                    Width="37" Padding="8" x:Name="deleteNote3" Height="35" Click="deleteNote3_Click" >
                                     <materialDesign:PackIcon
                                         Kind="TrashCan"/>
                                 </Button>
                             </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 4"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
                                 <Button
-                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote6" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote6" Height="32" HorizontalAlignment="Center" Content="Open Note" Click="openNote6_Click"/>
                             </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote7" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
@@ -175,13 +165,13 @@
                     <Grid>
                         <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
                                 <Button
-                                    Width="37" Padding="8" x:Name="deleteNote4" Height="35" Click="deleteNote_Click">
+                                    Width="37" Padding="8" x:Name="deleteNote4" Height="35" Click="deleteNote4_Click">
                                     <materialDesign:PackIcon
                                         Kind="TrashCan"/>
                                 </Button>
                             </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 5"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
                                 <Button
-                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote8" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote8" Height="32" HorizontalAlignment="Center" Content="Open Note" Click="openNote8_Click"/>
                             </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote9" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
@@ -190,13 +180,13 @@
                     <Grid>
                         <TextBlock Height="174" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Margin="0,0,1,0"><Run Text="                       "/><InlineUIContainer>
                                 <Button
-                                    Width="37" Padding="8" x:Name="deleteNote5" Height="35" Click="deleteNote_Click">
+                                    Width="37" Padding="8" x:Name="deleteNote5" Height="35" Click="deleteNote5_Click">
                                     <materialDesign:PackIcon
                                         Kind="TrashCan"/>
                                 </Button>
                             </InlineUIContainer><LineBreak/><LineBreak/><Run FontSize="36" Text=" Note 6"/><LineBreak/><LineBreak/><LineBreak/><Run Text="  "/><InlineUIContainer>
                                 <Button
-                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote10" Height="32" HorizontalAlignment="Center" Content="Open Note"/>
+                                    Width="107" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote10" Height="32" HorizontalAlignment="Center" Content="Open Note" Click="openNote10_Click"/>
                             </InlineUIContainer><LineBreak/><Run Text="  "/><LineBreak/><Run/></TextBlock>
                         <Button Style="{DynamicResource MaterialDesignFlatMidBgButton}" x:Name="openNote11" Content="Open Note" Margin="53,178,554,0"/>
                     </Grid>
