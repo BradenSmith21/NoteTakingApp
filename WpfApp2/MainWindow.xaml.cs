@@ -165,37 +165,27 @@ namespace WpfApp2
 
             //} // yay this works, now to test loading UPDATE This was my crude way of saving to database, rewritten below to make program useable   
             #endregion
-            string testName = "testName";
-            string testSummary = "testSummary";
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
             MySqlCommand myCmd = connection.CreateCommand();
-            myCmd.Parameters.AddWithValue("@testName", testName.ToString());
-            myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
             myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
-            myCmd.CommandText = "UPDATE notes SET note_name=@testName, note_summary=@testSummary, note_content=@noteContent WHERE note_id=" + 1 + ";";
+            myCmd.CommandText = "UPDATE notes SET note_content=@noteContent WHERE note_id=" + 1 + ";";
             if (myCmd.ExecuteNonQuery() > 0)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Note was saved to Note 1!");
             }
-
             connection.Close();
-
         }
       
         private void saveTextBox2_Click(object sender, RoutedEventArgs e)
         {
-            string testName = "testName";
-            string testSummary = "testSummary";
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
             MySqlCommand myCmd = connection.CreateCommand();
-            myCmd.Parameters.AddWithValue("@testName", testName.ToString());
-            myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
             myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
-            myCmd.CommandText = "UPDATE notes SET note_name=@testName, note_summary=@testSummary, note_content=@noteContent WHERE note_id=" + 2 + ";";
+            myCmd.CommandText = "UPDATE notes SET note_content=@noteContent WHERE note_id=" + 2 + ";";
             if (myCmd.ExecuteNonQuery() > 0)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Note was saved to Note 2!");
@@ -205,16 +195,12 @@ namespace WpfApp2
 
         private void saveTextBox3_Click(object sender, RoutedEventArgs e)
         {
-            string testName = "testName";
-            string testSummary = "testSummary";
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
             MySqlCommand myCmd = connection.CreateCommand();
-            myCmd.Parameters.AddWithValue("@testName", testName.ToString());
-            myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
             myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
-            myCmd.CommandText = "UPDATE notes SET note_name=@testName, note_summary=@testSummary, note_content=@noteContent WHERE note_id=" + 3 + ";";
+            myCmd.CommandText = "UPDATE notes SET note_content=@noteContent WHERE note_id=" + 3 + ";";
             if (myCmd.ExecuteNonQuery() > 0)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Note was saved to Note 3!");
@@ -225,16 +211,12 @@ namespace WpfApp2
 
         private void saveTextBox4_Click(object sender, RoutedEventArgs e)
         {
-            string testName = "testName";
-            string testSummary = "testSummary";
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
             MySqlCommand myCmd = connection.CreateCommand();
-            myCmd.Parameters.AddWithValue("@testName", testName.ToString());
-            myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
             myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
-            myCmd.CommandText = "UPDATE notes SET note_name=@testName, note_summary=@testSummary, note_content=@noteContent WHERE note_id=" + 4 + ";";
+            myCmd.CommandText = "UPDATE notes SET note_content=@noteContent WHERE note_id=" + 4 + ";";
             if (myCmd.ExecuteNonQuery() > 0)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Note was saved to Note 4!");
@@ -245,16 +227,12 @@ namespace WpfApp2
 
         private void saveTextBox5_Click(object sender, RoutedEventArgs e)
         {
-            string testName = "testName";
-            string testSummary = "testSummary";
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
             MySqlCommand myCmd = connection.CreateCommand();
-            myCmd.Parameters.AddWithValue("@testName", testName.ToString());
-            myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
             myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
-            myCmd.CommandText = "UPDATE notes SET note_name=@testName, note_summary=@testSummary, note_content=@noteContent WHERE note_id=" + 5 + ";";
+            myCmd.CommandText = "UPDATE notes SET note_content=@noteContent WHERE note_id=" + 5 + ";";
             if (myCmd.ExecuteNonQuery() > 0)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Note was saved to Note 5");
@@ -265,16 +243,12 @@ namespace WpfApp2
 
         private void saveTextBox6_Click(object sender, RoutedEventArgs e)
         {
-            string testName = "testName";
-            string testSummary = "testSummary";
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
             MySqlCommand myCmd = connection.CreateCommand();
-            myCmd.Parameters.AddWithValue("@testName", testName.ToString());
-            myCmd.Parameters.AddWithValue("@testSummary", testSummary.ToString());
             myCmd.Parameters.AddWithValue("@noteContent", newNoteBox.Text);
-            myCmd.CommandText = "UPDATE notes SET note_name=@testName, note_summary=@testSummary, note_content=@noteContent WHERE note_id=" + 6 + ";";
+            myCmd.CommandText = "UPDATE notes SET note_content=@noteContent WHERE note_id=" + 6 + ";";
             if (myCmd.ExecuteNonQuery() > 0)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Note was saved to Note 6!");
@@ -303,7 +277,7 @@ namespace WpfApp2
 
             // DATABASE PULLING WORKS :D, just need further development to make it less hard coded and more automatic.
             #endregion
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -323,7 +297,7 @@ namespace WpfApp2
 
         private void openNote2_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -343,7 +317,7 @@ namespace WpfApp2
 
         private void openNote4_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -363,7 +337,7 @@ namespace WpfApp2
 
         private void openNote6_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -383,7 +357,7 @@ namespace WpfApp2
 
         private void openNote8_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -403,7 +377,7 @@ namespace WpfApp2
 
         private void openNote10_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -423,11 +397,11 @@ namespace WpfApp2
         
         private void deleteNote_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_name = ' ', note_summary = ' ', note_content = ' ' WHERE note_id=" + 1 + ";", connection);
+                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_content = ' ' WHERE note_id=" + 1 + ";", connection);
 
                 if(mySqlCommand.ExecuteNonQuery() > 0)
                 {
@@ -440,11 +414,11 @@ namespace WpfApp2
         
         private void deleteNote1_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_name = ' ', note_summary = ' ', note_content = ' ' WHERE note_id=" + 2 + ";", connection);
+                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_content = ' ' WHERE note_id=" + 2 + ";", connection);
                 if (mySqlCommand.ExecuteNonQuery() > 0)
                 {
                     Xceed.Wpf.Toolkit.MessageBox.Show("Note 2 successfully deleted, you can now save a new note here!");
@@ -455,11 +429,11 @@ namespace WpfApp2
 
         private void deleteNote2_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_name = ' ', note_summary = ' ', note_content = ' ' WHERE note_id=" + 3 + ";", connection);
+                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_content = ' ' WHERE note_id=" + 3 + ";", connection);
 
                 if (mySqlCommand.ExecuteNonQuery() > 0)
                 {
@@ -472,11 +446,11 @@ namespace WpfApp2
 
         private void deleteNote3_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_name = ' ', note_summary = ' ', note_content = ' ' WHERE note_id=" + 4 + ";", connection);
+                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_content = ' ' WHERE note_id=" + 4 + ";", connection);
 
                 if (mySqlCommand.ExecuteNonQuery() > 0)
                 {
@@ -489,11 +463,11 @@ namespace WpfApp2
 
         private void deleteNote4_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_name = ' ', note_summary = ' ', note_content = ' ' WHERE note_id=" + 5 + ";", connection);
+                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_content = ' ' WHERE note_id=" + 5 + ";", connection);
 
                 if (mySqlCommand.ExecuteNonQuery() > 0)
                 {
@@ -506,11 +480,11 @@ namespace WpfApp2
 
         private void deleteNote5_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "SERVER=127.0.0.1;DATABASE=wpf_2;UID=root;PASSWORD=root;";
+            string connectionString = "Server=sql3.freesqldatabase.com;Port=3306;Database=sql3508520;Uid=sql3508520;Pwd=phIQ2RPt8j";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_name = ' ', note_summary = ' ', note_content = ' ' WHERE note_id=" + 6 + ";", connection);
+                MySqlCommand mySqlCommand = new MySqlCommand("UPDATE notes SET note_content = ' ' WHERE note_id=" + 6 + ";", connection);
 
                 if (mySqlCommand.ExecuteNonQuery() > 0)
                 {
