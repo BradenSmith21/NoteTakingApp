@@ -289,7 +289,7 @@ namespace WpfApp2
                         newNoteBox.Text = sqlreader["note_content"].ToString();
                     }
                 }
-                Xceed.Wpf.Toolkit.MessageBox.Show("Note successfully opened, tab over to 'New Note' to view/edit");
+                myTabControl.SelectedItem = NewNoteHeader;
 
                 connection.Close();
             }
@@ -309,7 +309,7 @@ namespace WpfApp2
                         newNoteBox.Text = sqlreader["note_content"].ToString();
                     }
                 }
-                Xceed.Wpf.Toolkit.MessageBox.Show("Note successfully opened, tab over to 'New Note' to view/edit");
+                myTabControl.SelectedItem = NewNoteHeader;
 
                 connection.Close();
             }
@@ -329,7 +329,7 @@ namespace WpfApp2
                         newNoteBox.Text = sqlreader["note_content"].ToString();
                     }
                 }
-                Xceed.Wpf.Toolkit.MessageBox.Show("Note successfully opened, tab over to 'New Note' to view/edit");
+                myTabControl.SelectedItem = NewNoteHeader;
 
                 connection.Close();
             }
@@ -349,7 +349,7 @@ namespace WpfApp2
                         newNoteBox.Text = sqlreader["note_content"].ToString();
                     }
                 }
-                Xceed.Wpf.Toolkit.MessageBox.Show("Note successfully opened, tab over to 'New Note' to view/edit");
+                myTabControl.SelectedItem = NewNoteHeader;
 
                 connection.Close();
             }
@@ -369,7 +369,7 @@ namespace WpfApp2
                         newNoteBox.Text = sqlreader["note_content"].ToString();
                     }
                 }
-                Xceed.Wpf.Toolkit.MessageBox.Show("Note successfully opened, tab over to 'New Note' to view/edit");
+                myTabControl.SelectedItem = NewNoteHeader;
 
                 connection.Close();
             }
@@ -389,7 +389,7 @@ namespace WpfApp2
                         newNoteBox.Text = sqlreader["note_content"].ToString();
                     }
                 }
-                Xceed.Wpf.Toolkit.MessageBox.Show("Note successfully opened, tab over to 'New Note' to view/edit");
+                myTabControl.SelectedItem = NewNoteHeader;
                 connection.Close();
             }
         }

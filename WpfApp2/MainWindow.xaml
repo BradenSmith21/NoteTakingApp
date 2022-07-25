@@ -14,7 +14,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="655.18" Width="756.205">
-    <TabControl Margin="18,17,13,15">
+    <TabControl Name="myTabControl" Margin="18,17,13,15">
         <TabItem Name="NewNoteHeader"  Header="New Note" Width="180">
             <DockPanel>
                 <Menu DockPanel.Dock="Top">
@@ -36,49 +36,50 @@
                         </MenuItem>
                     </MenuItem>
                 </Menu>
-                <ToolBarTray DockPanel.Dock="Top">
-                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}" Width="725">
+                <ToolBarTray DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}" Width="727" HorizontalAlignment="Center" VerticalAlignment="Center" Height="53">
+
                         <Button ToolTip="FontChanger" ToolBar.OverflowMode="AsNeeded" Click="Button_Click" >
-                            <materialDesign:PackIcon Kind="FormatFont" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatFont" Width="20"/>
                         </Button>
                         <Button Name="ColorChange" ToolTip="Change Font Color" ToolBar.OverflowMode="AsNeeded" Click="ColorChange_Click">
-                            <materialDesign:PackIcon Kind="Color" Width="18"/>
+                            <materialDesign:PackIcon Kind="Color" Width="20"/>
                         </Button>
+                        <Separator/>
                         <Button Name ="FontDecrease" ToolTip="Decrease Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontDecrease_Click">
-                            <materialDesign:PackIcon Kind="FormatFontSizeDecrease" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatFontSizeDecrease" Height="18" Width="20"/>
                         </Button>
                         <Button Name ="FontIncrease" ToolTip="Increase Font Size" ToolBar.OverflowMode="AsNeeded" Click="FontIncrease_Click">
-                            <materialDesign:PackIcon Kind="FormatFontSizeIncrease" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatFontSizeIncrease" Height="18" Width="20"/>
                         </Button>
                         <Separator/>
                         <Button Name="toggleBullets" ToolTip="Add Bullets!" ToolBar.OverflowMode="AsNeeded" Click="toggleBullets_Click" >
-                            <materialDesign:PackIcon Kind="FormatListBulleted" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatListBulleted" Height="18" Width="20"/>
                         </Button>
                         <Button Name="toggleNumerals" ToolTip="Add Numbers!" ToolBar.OverflowMode="AsNeeded" Click="toggleNumerals_Click" >
-                            <materialDesign:PackIcon Kind="FormatListNumbered" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatListNumbered" Height="18" Width="19"/>
                         </Button>
                         <Separator/>
                         <Button Name ="leftAlignment" ToolTip="Set Alignment Left" ToolBar.OverflowMode="AsNeeded" Click="leftAlignment_Click">
                             <materialDesign:PackIcon Kind="AlignHorizontalLeft" Height="18" Width="18"/>
                         </Button>
                         <Button Name ="CenterAlignment" ToolTip="Set Alignment Center" ToolBar.OverflowMode="AsNeeded" Click="CenterAlignment_Click">
-                            <materialDesign:PackIcon Kind="AlignHorizontalCenter" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="AlignHorizontalCenter" Height="18" Width="16"/>
                         </Button>
                         <Button Name ="RightAlignment" ToolTip="Set Alignment Right" ToolBar.OverflowMode="AsNeeded" Click="RightAlignment_Click">
-                            <materialDesign:PackIcon Kind="AlignHorizontalRight" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="AlignHorizontalRight" Height="18" Width="16"/>
                         </Button>
                         <Separator/>
                         <Button Name="Bold" ToolTip="Bold" ToolBar.OverflowMode="AsNeeded" Click="Bold_Click">
-                            <materialDesign:PackIcon Kind="FormatBold" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatBold" Height="18" Width="20"/>
                         </Button>
                         <Button Name="Italics" ToolTip="Italicize" ToolBar.OverflowMode="AsNeeded" Click="Italics_Click">
-                            <materialDesign:PackIcon Kind="FormatItalic" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatItalic" Height="18" Width="20"/>
                         </Button>
                         <Button Name="underLine" ToolTip="Underline" ToolBar.OverflowMode="AsNeeded" Click="underLine_Click">
-                            <materialDesign:PackIcon Kind="FormatUnderline" Height="18" Width="18"/>
+                            <materialDesign:PackIcon Kind="FormatUnderline" Height="18" Width="20"/>
                         </Button>
 
-                        <Separator/>
                     </ToolBar>
                 </ToolBarTray>
                 <Grid >
